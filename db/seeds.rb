@@ -31,7 +31,7 @@ Airport.find_or_create_by!([{
     city: "Las Vegas, NV"
 },
 {
-    code:, "NYC",
+    code: "NYC",
     city: "New York City, NY"
 },
 {
@@ -41,44 +41,49 @@ Airport.find_or_create_by!([{
 ])
 
 p "Created #{Airport.count} airports"
+airports = Airport.all
+airports.each do |apt|
+    puts apt.id
+end
+
 
 Flight.destroy_all
 
 Flight.find_or_create_by!([{
-    departure_airport_id: 1,
-    arrival_airport_id: 6, 
+    departure_airport_id: airports[0].id,
+    arrival_airport_id: airports[5].id, 
     departure_time: Time.new(2025, 1, 21, 13, 46),
     arrival_time: Time.new(2025, 1, 21, 23, 44),
     duration: 7, 
 },
 {
-    departure_airport_id:1,
-    arrival_airport_id:6, 
+    departure_airport_id: airports[0].id,
+    arrival_airport_id: airports[5].id, 
     departure_time: Time.new(2025, 1, 21, 21, 55),
     arrival_time: Time.new( 2025, 1, 22, 9, 21),
     duration: 8, 
 },
 {
-    departure_airport_id:1,
-    arrival_airport_id:3, 
+    departure_airport_id: airports[0].id,
+    arrival_airport_id: airports[2].id, 
     departure_time: Time.new(2025,1,19, 10, 55),
     arrival_time: Time.new(2025,1,19, 12, 37),
     duration:2, 
 },
 {
-    departure_airport_id:1,
-    arrival_airport_id:3, 
+    departure_airport_id: airports[0].id,
+    arrival_airport_id: airports[2].id, 
     departure_time: Time.new(2025, 1, 19, 21, 55),
     arrival_time: Time.new(2025, 1, 19, 23, 38),
     duration:2, 
 },
 {
-    departure_airport_id:3,
-    arrival_airport_id:1, 
+    departure_airport_id: airports[2].id,
+    arrival_airport_id: airports[0].id, 
     departure_time: Time.new(2025, 1, 22, 11, 00),
     arrival_time: Time.new(2025, 1, 22, 12, 39),
     duration:2, 
 }
 ])
 
-p "Created #{Airport.count} airports"
+p "Created #{Flight.count} airports"
