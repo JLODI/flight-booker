@@ -1,2 +1,6 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Welcome to the Flight booker!</h1>
+<%= form_with url: "/flights", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.search_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
