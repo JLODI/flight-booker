@@ -1,6 +1,13 @@
 <h1>Welcome to the Flight booker!</h1>
 <%= form_with url: "/flights", method: :get do |form| %>
-  <%= form.label :query, "Search for:" %>
-  <%= form.search_field :query %>
-  <%= form.submit "Search" %>
+  <%= form.label "Departing From" %>
+  <%= form.collection_select :departure_code, Airport.order(:code), :id, :code %><br />
+  <%= form.label "Arriving in" %>
+  <%= form.collection_select :arrival_code, Airport.order(:code), :id, :code %><br />
+  <%= form.label "Number of Passengers" %>
+  <%= form.select :num_tickets, (1..4) %><br />
+  <%= form.label "Select the Departure Date"%>
+  <%= form.date_field :date %><br />
+  <%= form.submit "Search for flights" %>
 <% end %>
+
