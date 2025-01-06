@@ -10,7 +10,7 @@
 
 Airport.destroy_all
 
-Airport.find_orcreate_by!([{
+Airport.find_or_create_by!([{
     code: "SAN",
     city: "San Diego, CA"
 },
@@ -37,6 +37,57 @@ Airport.find_orcreate_by!([{
 {
     code: "DFW",
     city: "Dallas, TX"
+},
+])
+
+p "Created #{Airport.count} airports"
+
+Flight.destroy_all
+
+Flight.find_or_create_by!([{
+    departure_airport_id: 1,
+    arrival_airport_id: 6, 
+    departure_date: 2025,1,21,  
+    departure_time: 13:46,
+    arrival_date: 2025,1,21,
+    arrival_time: 23:44,
+    duration: 7, 
+},
+{
+    departure_airport_id:1,
+    arrival_airport_id:6, 
+    departure_date: 2025,1,21, 
+    departure_time: 21:55,
+    arrival_date: 2025,1,22,
+    arrival_time: 9:21,
+    duration: 8, 
+},
+{
+    departure_airport_id:1,
+    arrival_airport_id:3, 
+    departure_date: 2025,1,19, 
+    departure_time: 10:55,
+    arrival_date: 2025,1,19,
+    arrival_time: 12:37,
+    duration:2, 
+},
+{
+    departure_airport_id:1,
+    arrival_airport_id:3, 
+    departure_date: 2025,1,19,  
+    departure_time:21:55,
+    arrival_date:2025,1,19,
+    arrival_time:23:38,
+    duration:2, 
+},
+{
+    departure_airport_id:3,
+    arrival_airport_id:1, 
+    departure_date: 2025,1,22,  
+    departure_time:11:00,
+    arrival_date:2025,1,22,
+    arrival_time:12:39,
+    duration:2, 
 },
 ])
 
