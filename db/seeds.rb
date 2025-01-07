@@ -86,4 +86,4 @@ Flight.find_or_create_by!([{
 }
 ])
 
-p "Created #{Flight.count} airports"
+p "Created #{Flight.count} flights"
