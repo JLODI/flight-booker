@@ -1,17 +1,15 @@
 <h1>Welcome to the Flight booker!</h1>
 <%= form_with url: "/flights", method: :get do |form| %>
   <%= form.label "Departing From" %>
-  <%= form.select( :departure_airport_id, 
+  <%= form.select( :departure_airport_code, 
                     options_for_select(
-                    @airport_options, 
-                    params:[:departure_airport_id]),
+                    @airport_options),
                     required:true 
                     ) %><br />
   <%= form.label "Arriving in" %>
-  <%= form.select( :arrival_airport_id, 
+  <%= form.select( :arrival_airport_code, 
                     options_for_select(
-                    @airport_options, 
-                    params:[:arrival_airport_id]),
+                    @airport_options),
                     required:true 
                     ) %><br />
   <%= form.label "Number of Passengers" %>
