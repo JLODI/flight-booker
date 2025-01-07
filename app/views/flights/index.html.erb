@@ -15,6 +15,11 @@
   <%= form.label "Number of Passengers" %>
   <%= form.select :num_tickets, (1..4) %><br />
   <%= form.label "Select the Departure Date"%>
-  <%= form.date_field :departure_date %><br />
+  <%= form.date_field :departure_time %><br />
   <%= form.submit "Search for flights" %>
 <% end %>
+
+<% if @flight_result.present?%>
+    <%= @flight_result%>
+<% end %>
+
