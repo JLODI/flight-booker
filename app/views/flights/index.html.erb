@@ -20,6 +20,26 @@
 <% end %>
 
 <% if @flight_result.present?%>
-    <%= @flight_result%>
+    <div id ="flight-result">
+        <%= form_with do |form|%>
+            <% @flight_result.each do |flight| %>
+                <div id="event">
+                        <h3 id="Flight-name">
+                            <% form.label :booking_option %>
+                            <%= form.radio_button :booking_option, required: true %>
+                            <%= flight.flight_name %>
+                        </h3>
+                        <div>
+                            Departure Time: 
+                            <%= flight.departure_time %>
+                        </div>
+                        <div>
+                            Flight duration: 
+                            <%= flight.duration %> hours
+                        </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 <% end %>
 
