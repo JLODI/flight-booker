@@ -5,6 +5,8 @@ class Flight < ApplicationRecord
     def flight_name
         departure_code = self.departure_airport.code
         arrival_code = self.arrival_airport.code
-        "#{departure_code} -> #{arrival_code}"
+        departure_airport_city = self.departure_airport.city
+        arrival_airport_city = self.arrival_airport.city
+        "#{arrival_airport_city} (#{departure_code}) -> #{arrival_airport_city}(#{arrival_code})"
     end
 end
