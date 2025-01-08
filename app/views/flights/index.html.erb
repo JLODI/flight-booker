@@ -5,7 +5,7 @@
 <% if @flight_result.present?%>
     <div id ="flight-result">
         <%= form_with url: "bookings/new/", method: :get do |form|%>
-        <%= form.hidden_field :num_tickets, :value => params[:num_tickets] %>
+        <%= form.hidden_field :num_tickets, value: params[:num_tickets] %>
             <% @flight_result.each do |flight| %>
                 <div id="event">
                         <h3 id="Flight-name">

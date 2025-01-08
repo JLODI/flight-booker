@@ -14,6 +14,6 @@ class Flight < ApplicationRecord
         arrival_code = self.arrival_airport.code
         departure_airport_city = self.departure_airport.city
         arrival_airport_city = self.arrival_airport.city
-        "#{arrival_airport_city} (#{departure_code}) -> #{arrival_airport_city}(#{arrival_code})"
+        "#{departure_airport_city} (#{departure_code}) -> #{arrival_airport_city}(#{arrival_code})"
     end
 end

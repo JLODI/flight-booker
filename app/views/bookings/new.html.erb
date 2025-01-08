@@ -1,4 +1,11 @@
 
+
+<%= @flight_option.flight_name %><br />
+Departure date: 
+<%= @flight_option.departure_time%><br />
+Flight duration:
+<%= @flight_option.duration%> hours<br />
+
 <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
     <%= form.hidden_field :num_tickets, value: params[:num_tickets] %>
