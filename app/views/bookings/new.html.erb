@@ -8,7 +8,6 @@ Flight duration:
 
 <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-    <%= form.hidden_field :num_tickets, value: params[:num_tickets] %>
     
     <div class="new-passenger-form">
         <% @num_tickets.times do %>

@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
     def new
         @booking = Booking.new
         @num_tickets = params[:num_tickets].to_i
-
         @flight_option = search_flight_option
     end
     
@@ -22,6 +21,6 @@ class BookingsController < ApplicationController
     end
 
     def passenger_params
-        params.expect(booking: [:num_tickets])
+        params.require(:booking).permit(passengers_attributes: [:name, :email])
     end
 end
