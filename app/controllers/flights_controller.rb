@@ -4,6 +4,8 @@ class FlightsController < ApplicationController
     if params[:departure_airport_code].present?
       @flight_result = search_flights
     end
+    
+
   end
 
   private
@@ -24,4 +26,6 @@ class FlightsController < ApplicationController
     flight_query
     end
   end
+
+
 end

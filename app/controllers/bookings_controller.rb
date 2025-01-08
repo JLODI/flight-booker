@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
     def new
         @booking = Booking.new
-        num_tickets = params[:num_tickets].to_i
+        @num_tickets = params[:num_tickets].to_i
     end
     
     def create

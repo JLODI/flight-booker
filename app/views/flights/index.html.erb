@@ -9,8 +9,8 @@
             <% @flight_result.each do |flight| %>
                 <div id="event">
                         <h3 id="Flight-name">
-                            <% form.label :booking_option %>
-                            <%= form.radio_button :booking_option, required: true %>
+                            <% form.label :flight_id %>
+                            <%= form.radio_button :flight_id, flight.id %>
                             <%= flight.flight_name %>
                         </h3>
                         <div>

@@ -1,15 +1,17 @@
 
 <%= form_with model: @booking do |form| %>
-    <%= form.hidden_field :booking_option, :value => params[:booking_option] %>
-    <%= form.hidden_field :num_tickets, :value => params[:num_tickets] %>
+    <%= form.hidden_field :flight_id, value: params[:flight_id] %>
+    <%= form.hidden_field :num_tickets, value: params[:num_tickets] %>
     
     <div class="new-passenger-form">
-        <% 3.times do %>
-            <%= form.fields_for :passengers do |sub_form| %>
+        <% @num_tickets.times do %>
+            <%= form.fields_for :passengers, Passenger.new do |sub_form| %>
+                <div>
                     <%= sub_form.label :name %>
-                    <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %>
+                    <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
+                </div>
                     <%= sub_form.label :email %>
-                    <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %>
+                    <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
             <% end %>
 
         <% end %>
