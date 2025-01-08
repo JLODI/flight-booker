@@ -1,0 +1,18 @@
+
+<%= form_with model: @booking do |form| %>
+    <%= form.hidden_field :booking_option, :value => params[:booking_option] %>
+    <%= form.hidden_field :num_tickets, :value => params[:num_tickets] %>
+    
+    <div class="new-passenger-form">
+        <% 3.times do %>
+            <%= form.fields_for :passengers do |sub_form| %>
+                    <%= sub_form.label :name %>
+                    <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %>
+                    <%= sub_form.label :email %>
+                    <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %>
+            <% end %>
+
+        <% end %>
+        <%= form.submit "Confirm Booking" %>
+    </div>
+<% end %>

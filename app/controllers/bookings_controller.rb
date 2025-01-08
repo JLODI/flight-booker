@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     end
     
     def create
-        @booking = .Booking.new(passenger_params)
+        @booking = Booking.new(passenger_params)
         if @booking.save
             flash[:notice] = "Your flight is confirmed!"
             render :new
@@ -17,6 +17,6 @@ class BookingsController < ApplicationController
 
     private
     def passenger_params
-        params.expect(booking: [:name, :email])
+        params.expect(booking: [:num_tickets])
     end
 end
