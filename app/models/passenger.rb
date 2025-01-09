@@ -1,5 +1,4 @@
 class Passenger < ApplicationRecord
-    belongs_to :booking
-    has_many :flights, through: :booking
-    
+    has_many :bookings, dependent: :destroy
+    has_many :flights, through: :bookings
 end
