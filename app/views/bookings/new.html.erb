@@ -11,7 +11,7 @@ Flight duration:
     
     <div class="new-passenger-form">
         <% @num_tickets.times do %>
-            <%= form.fields_for :passengers, Passenger.new do |sub_form| %>
+            <%= form.fields_for :passenger, Passenger.new do |sub_form| %>
                 <div>
                     <%= sub_form.label :name %>
                     <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
