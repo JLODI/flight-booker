@@ -1,7 +1,6 @@
 <h1>Welcome to the Flight booker!</h1>
 
 <%= render partial: "search" %>
-
 <% if @flight_result.present?%>
     <div id ="flight-result">
         <%= form_with url: "bookings/new/", method: :get do |form|%>
@@ -26,5 +25,7 @@
             <%= form.submit "Select Flight" %>
         <% end %>
     </div>
+<% else %>
+    Sorry there are no flights for your query.
 <% end %>
 

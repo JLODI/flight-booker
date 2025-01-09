@@ -10,16 +10,13 @@ Flight duration:
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
     
     <div class="new-passenger-form">
-        <% @num_tickets.times do %>
-            <%= form.fields_for :passenger, Passenger.new do |sub_form| %>
-                <div>
-                    <%= sub_form.label :name %>
-                    <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
-                </div>
-                    <%= sub_form.label :email %>
-                    <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
-            <% end %>
-
+        <%= form.fields_for :passengers do |sub_form| %>
+            <div>
+                <%= sub_form.label :name %>
+                <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
+            </div>
+                <%= sub_form.label :email %>
+                <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
         <% end %>
         <%= form.submit "Confirm Booking" %>
     </div>

@@ -1,0 +1,17 @@
+<H3>Booking Information:</H3>
+<H2>You're booking is reserved!<H2>
+<p>Here are your flight details</p>
+<%= @booking.flight.flight_name %><br />
+Departure date: 
+<%= @booking.flight.departure_time%><br />
+Flight duration:
+<%= @booking.flight.duration%> hours<br />
+Passenger information:
+<% if @booking.passengers.present? %>
+    <% @booking.passengers.each do |passenger| %>
+        <%= passenger.name %> 
+        <%= passenger.email %></li>
+    <% end %>
+<% else %>
+"Passengers not found"
+<% end %>
