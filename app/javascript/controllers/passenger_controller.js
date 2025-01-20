@@ -7,4 +7,12 @@ export default class extends Controller {
 
   connect() {
   }
+
+  addPassenger(){
+
+  }
+
+  removePassenger(){
+    
+  }
 }
