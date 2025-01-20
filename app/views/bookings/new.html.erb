@@ -18,9 +18,10 @@ Flight duration:
                 <%= sub_form.label :email %>
                 <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
         <% end %>
+        <div>
+            <button class="add_passenger_button" data-action="change->passenger#addPassengerForm" data-passenger-target="addPassengerButton" type="button">Add Passenger</button>
+        </div>
         <%= form.submit "Confirm Booking" %>
     </div>
-    <div>
-    <button class="add_passenger_button" data-action="change->passenger#addPassengerForm" data-passenger-target="addPassengerButton" type="button">Add Passenger</button>
-  </div>
+    
 <% end %>
