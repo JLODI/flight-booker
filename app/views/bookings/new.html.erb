@@ -6,22 +6,30 @@ Departure date:
 Flight duration:
 <%= @flight_option.duration%> hours<br />
 
+<div class="container">
 <%= form_with model: @booking do |form| %>
+     
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-    
-    <div class="new-passenger-form">
-        <%= form.fields_for :passengers do |sub_form| %>
-            <div>
-                <%= sub_form.label :name %>
-                <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
+        <div data-controller="passenger" data-passenger-count-value="">
+            <div class="new-passenger-form">
+                <div data-passenger-target="addform">
+                    <%= form.fields_for :passengers do |sub_form| %>
+                        <div class="passenger">
+                            <div class="form-field">
+                                <%= sub_form.label :name %>
+                                <%= sub_form.text_field :name, placeholder:"Type Your Name Here" %><br />
+                            </div>
+                            <div class="form-field">
+                                <%= sub_form.label :email %>
+                                <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
-                <%= sub_form.label :email %>
-                <%= sub_form.email_field :email, placeholder: "YourEmailHere@email.com" %><br />
-        <% end %>
-        <div>
-            <button class="add_passenger_button" data-action="change->passenger#addPassengerForm" data-passenger-target="addPassengerButton" type="button">Add Passenger</button>
+                
+            <button data-action="mousedown->passenger#addForm" type="button">Add Passenger</button>
         </div>
-        <%= form.submit "Confirm Booking" %>
-    </div>
-    
+    <%= form.submit "Confirm Booking" %>
 <% end %>
+</div>
