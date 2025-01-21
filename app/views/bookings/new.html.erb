@@ -8,9 +8,10 @@ Flight duration:
 
 <div class="container">
 <%= form_with model: @booking do |form| %>
-     
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-        <div data-controller="passenger" data-passenger-count-value="">
+        <div data-controller="passenger" >
+        <button data-action="mousedown->passenger#addForm" type="button">Add Passenger</button>
+        <button data-action="mousedown->passenger#removeForm" type="button">Remove Passenger</button>
             <div class="new-passenger-form">
                 <div data-passenger-target="addform">
                     <%= form.fields_for :passengers do |sub_form| %>
@@ -27,8 +28,6 @@ Flight duration:
                     <% end %>
                 </div>
             </div>
-                
-            <button data-action="mousedown->passenger#addForm" type="button">Add Passenger</button>
         </div>
     <%= form.submit "Confirm Booking" %>
 <% end %>
