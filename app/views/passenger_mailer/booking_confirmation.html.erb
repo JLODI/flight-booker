@@ -1,0 +1,22 @@
+<h1>Thank you for choosing Flight Booker!</h1>
+<p>
+ Thank you <%= @passenger.name %>,
+  Your flight has been booked!
+</p>
+<p>Here are your flight details:</p>
+<%= @booking.flight.flight_name %><br />
+Departure date: 
+<%= @booking.flight.departure_time%><br />
+Flight duration:
+<%= @booking.flight.duration%> hours<br />
+Passenger information:
+<% if @booking.passengers.present? %>
+    <% @booking.passengers.each do |passenger| %>
+        <%= passenger.name %> 
+        <%= passenger.email %></li>
+    <% end %>
+<% else %>
+"Passengers not found"
+<% end %>
+
+<p>Thanks for choosing Flight Booker and have a wonderful day!</p>
